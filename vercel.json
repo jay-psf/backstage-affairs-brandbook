@@ -1,0 +1,15 @@
+{
+  "name": "backstage-affairs-brandbook",
+  "version": 2,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=3600"
+      },
+      "dest": "/$1"
+    }
+  ]
+}
