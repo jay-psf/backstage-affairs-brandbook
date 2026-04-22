@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Backstage Affairs — Brand Book 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & BASE ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Roboto Condensed',sans-serif;
+  background:#000;
+  color:#fff;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ── TOKENS ── */
+:root{
+  --black:#000000;
+  --white:#ffffff;
+  --copper:#B87333;
+  --blue:#2B4A6F;
+  --gray-s:#999999;
+  --g3:#1a1a1a;
+  --g4:#2a2a2a;
+  --g5:#3a3a3a;
+  --g6:#666666;
+  --g7:#888888;
+  --led-red:#FF3366;
+  --led-green:#00FF88;
+  --led-amber:#FFB800;
+  --led-blue:#00AAFF;
+}
+
+/* ── NAV ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 2rem;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--g4);
+}
+.nav-logo{
+  font-size:1rem;font-weight:700;letter-spacing:.08em;
+  display:flex;gap:.35em;
+}
+.nav-logo .affairs-blur{
+  filter:blur(1.2px);
+  text-shadow:0 0 8px rgba(255,255,255,.3);
+}
+.nav-links{
+  display:flex;gap:1.5rem;
+  list-style:none;
+  font-size:.8rem;font-weight:500;letter-spacing:.06em;
+}
+.nav-links a{
+  color:var(--g7);
+  transition:color .2s;
+}
+.nav-links a:hover{color:#fff}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:2rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(184,115,51,.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+/* ── STACKED LOGO HERO ── */
+.logo-stacked-hero{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:flex-start;
+  line-height:1;
+}
+.logo-stacked-hero .backstage-word{
+  font-size:clamp(3rem,10vw,9rem);
+  font-weight:700;
+  letter-spacing:-.01em;
+  color:#fff;
+  white-space:nowrap;
+}
+.logo-stacked-hero .affairs-word{
+  font-weight:700;
+  letter-spacing:-.01em;
+  color:#fff;
+  white-space:nowrap;
+  /* JS sets font-size to match BACKSTAGE width */
+}
+
+/* ── FOG ANIMATION (hero variant uses px blur so it doesn't scale) ── */
+@keyframes ba-fog-hero{
+  0%,100%{filter:blur(2px);text-shadow:0 0 14px rgba(255,255,255,.35),0 0 28px rgba(255,255,255,.18);}
+  50%     {filter:blur(3.5px);text-shadow:0 0 20px rgba(255,255,255,.5),0 0 40px rgba(255,255,255,.25);}
+}
+.ba-fog-hero-letter{
+  display:inline-block;
+  animation:ba-fog-hero 3.4s ease-in-out infinite;
+}
+.ba-fog-hero-letter:nth-child(1){animation-delay:0s}
+.ba-fog-hero-letter:nth-child(2){animation-delay:.22s}
+.ba-fog-hero-letter:nth-child(3){animation-delay:.44s}
+.ba-fog-hero-letter:nth-child(4){animation-delay:.66s}
+.ba-fog-hero-letter:nth-child(5){animation-delay:.88s}
+.ba-fog-hero-letter:nth-child(6){animation-delay:1.1s}
+.ba-fog-hero-letter:nth-child(7){animation-delay:1.32s}
+
+/* ── FOG ANIMATION (em-based — scales with font size) ── */
+@keyframes ba-fog{
+  0%,100%{
+    filter:blur(0.05em);
+    text-shadow:0 0 0.5em rgba(255,255,255,.28),0 0 1em rgba(255,255,255,.12);
+  }
+  50%{
+    filter:blur(0.085em);
+    text-shadow:0 0 0.7em rgba(255,255,255,.44),0 0 1.4em rgba(255,255,255,.2);
+  }
+}
+.ba-fog-letter{
+  display:inline-block;
+  animation:ba-fog 3.4s ease-in-out infinite;
+}
+.ba-fog-letter:nth-child(1){animation-delay:0s}
+.ba-fog-letter:nth-child(2){animation-delay:.22s}
+.ba-fog-letter:nth-child(3){animation-delay:.44s}
+.ba-fog-letter:nth-child(4){animation-delay:.66s}
+.ba-fog-letter:nth-child(5){animation-delay:.88s}
+.ba-fog-letter:nth-child(6){animation-delay:1.1s}
+.ba-fog-letter:nth-child(7){animation-delay:1.32s}
+
+.hero-sub{
+  margin-top:2.5rem;
+  font-size:clamp(.75rem,1.5vw,1rem);
+  font-weight:500;
+  letter-spacing:.18em;
+  color:var(--g6);
+  text-transform:uppercase;
+}
+.hero-version{
+  margin-top:.75rem;
+  font-size:.75rem;
+  font-weight:500;
+  letter-spacing:.1em;
+  color:var(--g5);
+}
+.hero-scroll{
+  position:absolute;bottom:2.5rem;
+  font-size:.7rem;font-weight:500;letter-spacing:.12em;
+  color:var(--g6);text-transform:uppercase;
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+}
+.hero-scroll::after{
+  content:'';
+  width:1px;height:40px;
+  background:linear-gradient(to bottom,var(--g5),transparent);
+}
+
+/* ── SECTIONS ── */
+.section{
+  padding:6rem 2rem;
+  max-width:1100px;
+  margin:0 auto;
+}
+.section-label{
+  font-size:.7rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--copper);
+  margin-bottom:.75rem;
+}
+.section-title{
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:700;
+  line-height:1.1;
+  margin-bottom:1.5rem;
+}
+.section-body{
+  font-size:.95rem;
+  color:var(--g7);
+  max-width:680px;
+  line-height:1.8;
+}
+.divider{
+  width:100%;height:1px;
+  background:var(--g4);
+  margin:0;
+}
+
+/* ── LOGO SHOWCASE GRID ── */
+.logo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5px;
+  margin-top:3rem;
+  background:var(--g4);
+  border:1px solid var(--g4);
+}
+.logo-card{
+  background:#000;
+  padding:3.5rem 2.5rem;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:1.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.logo-card.light-bg{
+  background:#fff;
+  color:#000;
+}
+.logo-card-label{
+  font-size:.65rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--g6);
+  position:absolute;top:1rem;right:1rem;
+}
+.logo-card.light-bg .logo-card-label{color:#aaa}
+
+/* Stacked logo inside cards */
+.logo-stacked-card{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:flex-start;
+  line-height:1;
+}
+.logo-stacked-card .backstage-word{
+  font-size:clamp(1.4rem,3.5vw,2.8rem);
+  font-weight:700;
+  letter-spacing:-.01em;
+  white-space:nowrap;
+}
+.logo-stacked-card .affairs-word{
+  font-weight:700;
+  letter-spacing:-.01em;
+  white-space:nowrap;
+  /* JS sets font-size to match BACKSTAGE width */
+}
+
+/* Horizontal logo inside cards */
+.logo-horizontal-card{
+  display:inline-flex;
+  align-items:baseline;
+  gap:.4em;
+  line-height:1;
+}
+.logo-horizontal-card .backstage-word,
+.logo-horizontal-card .affairs-word{
+  font-size:clamp(1.2rem,3vw,2.2rem);
+  font-weight:700;
+  letter-spacing:-.01em;
+  white-space:nowrap;
+}
+
+/* Striped (CSS simulation — for print illustration only) */
+.affairs-striped{
+  background:repeating-linear-gradient(
+    0deg,
+    currentColor 0,
+    currentColor 3px,
+    transparent 3px,
+    transparent 4px
+  );
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+/* For light bg, striped needs black lines */
+.logo-card.light-bg .affairs-striped{
+  background:repeating-linear-gradient(
+    0deg,
+    #000 0,
+    #000 3px,
+    transparent 3px,
+    transparent 4px
+  );
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Blur static */
+.affairs-blur-static{
+  filter:blur(1.2px);
+  text-shadow:0 0 8px rgba(255,255,255,.3);
+}
+.logo-card.light-bg .affairs-blur-static{
+  filter:blur(1.2px);
+  text-shadow:0 0 8px rgba(0,0,0,.2);
+}
+
+/* Mode badge */
+.mode-badge{
+  display:inline-block;
+  padding:.25rem .75rem;
+  border:1px solid var(--g5);
+  border-radius:2px;
+  font-size:.65rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--g6);
+}
+.mode-badge.primary{
+  border-color:var(--copper);
+  color:var(--copper);
+}
+.logo-card.light-bg .mode-badge{
+  border-color:#bbb;
+  color:#999;
+}
+
+/* ── MONOGRAM ── */
+.monogram-showcase{
+  display:flex;gap:3rem;flex-wrap:wrap;
+  margin-top:3rem;
+}
+.monogram-block{
+  display:flex;flex-direction:column;
+  align-items:flex-start;
+  gap:1rem;
+}
+.monogram-text{
+  font-size:clamp(3rem,8vw,6rem);
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-.02em;
+}
+.monogram-text .b-letter{color:#fff}
+.monogram-text .a-letter-fog{
+  display:inline-block;
+  animation:ba-fog-hero 3.4s ease-in-out infinite;
+  animation-delay:.4s;
+}
+.monogram-label{
+  font-size:.65rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--g6);
+}
+
+/* ── COLOR SYSTEM ── */
+.color-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:1px;
+  margin-top:3rem;
+  background:var(--g4);
+  border:1px solid var(--g4);
+}
+.color-swatch{
+  display:flex;flex-direction:column;
+  background:#000;
+}
+.swatch-block{
+  height:100px;
+  width:100%;
+}
+.swatch-info{
+  padding:.75rem;
+  display:flex;flex-direction:column;gap:.2rem;
+}
+.swatch-name{
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;
+  color:#fff;
+}
+.swatch-hex{
+  font-size:.65rem;font-weight:400;
+  color:var(--g6);
+  font-family:monospace;
+}
+.swatch-role{
+  font-size:.6rem;font-weight:500;
+  color:var(--g6);
+  margin-top:.15rem;
+}
+
+/* LED grid */
+.led-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:1px;
+  margin-top:1.5rem;
+  background:var(--g4);
+  border:1px solid var(--g4);
+}
+
+/* Gray scale strip */
+.gray-strip{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(100px,1fr));
+  gap:1px;
+  margin-top:1.5rem;
+  background:var(--g4);
+  border:1px solid var(--g4);
+}
+
+/* ── TYPOGRAPHY ── */
+.type-table{
+  width:100%;border-collapse:collapse;
+  margin-top:3rem;
+}
+.type-table th{
+  text-align:left;
+  padding:.75rem 1rem;
+  font-size:.65rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--g6);
+  border-bottom:1px solid var(--g4);
+}
+.type-table td{
+  padding:1rem;
+  border-bottom:1px solid var(--g4);
+  vertical-align:middle;
+}
+.type-sample{
+  color:#fff;
+  line-height:1.1;
+}
+.type-meta{
+  font-size:.7rem;color:var(--g6);
+}
+
+/* ── RULES TABLE ── */
+.rules-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5px;
+  margin-top:3rem;
+  background:var(--g4);
+  border:1px solid var(--g4);
+}
+.rule-card{
+  background:var(--g3);
+  padding:1.75rem;
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+}
+.rule-icon{
+  font-size:1.25rem;
+  line-height:1;
+}
+.rule-title{
+  font-size:.85rem;font-weight:700;
+  letter-spacing:.04em;
+}
+.rule-desc{
+  font-size:.8rem;color:var(--g7);line-height:1.7;
+}
+
+/* ── DECISION MATRIX ── */
+.matrix-table{
+  width:100%;border-collapse:collapse;
+  margin-top:2rem;
+}
+.matrix-table th{
+  text-align:left;
+  padding:.75rem 1rem;
+  font-size:.65rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--g6);
+  border-bottom:1px solid var(--g4);
+}
+.matrix-table td{
+  padding:.9rem 1rem;
+  border-bottom:1px solid var(--g4);
+  font-size:.85rem;
+  vertical-align:middle;
+}
+.matrix-table tr:last-child td{border-bottom:none}
+.badge-mode{
+  display:inline-block;
+  padding:.2rem .6rem;
+  border-radius:2px;
+  font-size:.65rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.badge-fog{background:rgba(184,115,51,.15);color:var(--copper);border:1px solid rgba(184,115,51,.3)}
+.badge-blur{background:rgba(0,170,255,.1);color:var(--led-blue);border:1px solid rgba(0,170,255,.2)}
+.badge-stripe{background:rgba(255,255,255,.06);color:var(--g7);border:1px solid var(--g5)}
+
+/* ── DOWNLOAD / ASSET ── */
+.asset-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1.5px;
+  margin-top:3rem;
+  background:var(--g4);
+  border:1px solid var(--g4);
+}
+.asset-card{
+  background:var(--g3);
+  padding:1.5rem;
+  display:flex;flex-direction:column;gap:.75rem;
+}
+.asset-icon{
+  font-size:1.5rem;
+}
+.asset-name{
+  font-size:.85rem;font-weight:700;
+}
+.asset-format{
+  font-size:.7rem;color:var(--g6);
+  font-family:monospace;
+}
+.asset-use{
+  font-size:.75rem;color:var(--g7);line-height:1.6;
+}
+
+/* ── VOICE / TONE ── */
+.principles-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1.5px;
+  margin-top:3rem;
+  background:var(--g4);
+  border:1px solid var(--g4);
+}
+.principle-card{
+  background:var(--g3);
+  padding:1.75rem;
+  display:flex;flex-direction:column;gap:.6rem;
+}
+.principle-number{
+  font-size:.65rem;font-weight:700;letter-spacing:.12em;
+  color:var(--copper);
+}
+.principle-title{
+  font-size:.95rem;font-weight:700;
+}
+.principle-body{
+  font-size:.8rem;color:var(--g7);line-height:1.7;
+}
+
+/* ── FOOTER ── */
+.footer{
+  border-top:1px solid var(--g4);
+  padding:3rem 2rem;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:1rem;
+}
+.footer-logo{
+  font-size:.9rem;font-weight:700;letter-spacing:.1em;
+  display:flex;gap:.3em;
+}
+.footer-logo .affairs-blur{
+  filter:blur(1px);
+  text-shadow:0 0 6px rgba(255,255,255,.3);
+}
+.footer-copy{
+  font-size:.7rem;color:var(--g6);
+  letter-spacing:.06em;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .nav-links{display:none}
+  .rules-grid{grid-template-columns:1fr}
+  .logo-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    BACKSTAGE <span class="affairs-blur">AFFAIRS</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#monogram">Monograma</a></li>
+    <li><a href="#cores">Cores</a></li>
+    <li><a href="#tipografia">Tipografia</a></li>
+    <li><a href="#regras">Regras</a></li>
+    <li><a href="#matriz">Matriz</a></li>
+    <li><a href="#arquivos">Arquivos</a></li>
+    <li><a href="#voz">Voz</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="logo-stacked-hero" id="hero-logo">
+    <span class="backstage-word" id="hero-back">BACKSTAGE</span>
+    <span class="affairs-word" id="hero-aff">
+      <span class="ba-fog-hero-letter">A</span><span class="ba-fog-hero-letter">F</span><span class="ba-fog-hero-letter">F</span><span class="ba-fog-hero-letter">A</span><span class="ba-fog-hero-letter">I</span><span class="ba-fog-hero-letter">R</span><span class="ba-fog-hero-letter">S</span>
+    </span>
+  </div>
+  <p class="hero-sub">Brand Book &amp; Identity System</p>
+  <p class="hero-version">Versão 3.1 · Abril 2026</p>
+  <div class="hero-scroll">scroll</div>
+</section>
+
+<hr class="divider"/>
+
+<!-- 01 LOGO SYSTEM -->
+<section class="section" id="logo">
+  <p class="section-label">01 — Sistema de Logo</p>
+  <h2 class="section-title">Três modos.<br/>Uma regra de ouro.</h2>
+  <p class="section-body">BACKSTAGE é intocável. Sempre sólido, sem qualquer efeito. AFFAIRS sempre recebe o tratamento — fog animado no digital, blur estático em imagens, striped no impresso.</p>
+
+  <div class="logo-grid">
+
+    <!-- Card 1: Fog Animated – Dark BG -->
+    <div class="logo-card">
+      <span class="logo-card-label">Stacked · Dark</span>
+      <div class="logo-stacked-card" data-stacked>
+        <span class="backstage-word">BACKSTAGE</span>
+        <span class="affairs-word">
+          <span class="ba-fog-letter">A</span><span class="ba-fog-letter">F</span><span class="ba-fog-letter">F</span><span class="ba-fog-letter">A</span><span class="ba-fog-letter">I</span><span class="ba-fog-letter">R</span><span class="ba-fog-letter">S</span>
+        </span>
+      </div>
+      <span class="mode-badge primary">★ Modo 1 — Fog Animado</span>
+      <span class="mode-badge">Digital Primário</span>
+    </div>
+
+    <!-- Card 2: Fog Animated – Light BG -->
+    <div class="logo-card light-bg">
+      <span class="logo-card-label">Stacked · Light</span>
+      <div class="logo-stacked-card" data-stacked>
+        <span class="backstage-word">BACKSTAGE</span>
+        <span class="affairs-word">
+          <span class="ba-fog-letter" style="animation-name:ba-fog-light">A</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">F</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">F</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">A</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">I</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">R</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">S</span>
+        </span>
+      </div>
+      <span class="mode-badge primary">★ Modo 1 — Fog Animado</span>
+      <span class="mode-badge">Digital Primário</span>
+    </div>
+
+    <!-- Card 3: Blur Static – Dark BG -->
+    <div class="logo-card">
+      <span class="logo-card-label">Stacked · Blur Estático</span>
+      <div class="logo-stacked-card" data-stacked>
+        <span class="backstage-word">BACKSTAGE</span>
+        <span class="affairs-word affairs-blur-static">AFFAIRS</span>
+      </div>
+      <span class="mode-badge">Modo 2 — Blur Estático</span>
+      <span class="mode-badge">Digital Secundário</span>
+    </div>
+
+    <!-- Card 4: Striped – Dark BG (CSS sim) -->
+    <div class="logo-card">
+      <span class="logo-card-label">Stacked · Striped</span>
+      <div class="logo-stacked-card" data-stacked>
+        <span class="backstage-word">BACKSTAGE</span>
+        <span class="affairs-word affairs-striped">AFFAIRS</span>
+      </div>
+      <span class="mode-badge">Modo 3 — Striped</span>
+      <span class="mode-badge">Impresso Apenas</span>
+    </div>
+
+    <!-- Card 5: Horizontal Fog – Dark BG -->
+    <div class="logo-card">
+      <span class="logo-card-label">Horizontal · Dark</span>
+      <div class="logo-horizontal-card">
+        <span class="backstage-word">BACKSTAGE</span>
+        <span class="affairs-word">
+          <span class="ba-fog-letter">A</span><span class="ba-fog-letter">F</span><span class="ba-fog-letter">F</span><span class="ba-fog-letter">A</span><span class="ba-fog-letter">I</span><span class="ba-fog-letter">R</span><span class="ba-fog-letter">S</span>
+        </span>
+      </div>
+      <span class="mode-badge primary">★ Modo 1 — Fog Animado</span>
+      <span class="mode-badge">Horizontal</span>
+    </div>
+
+    <!-- Card 6: Horizontal Striped – Light BG -->
+    <div class="logo-card light-bg">
+      <span class="logo-card-label">Horizontal · Light · Striped</span>
+      <div class="logo-horizontal-card">
+        <span class="backstage-word">BACKSTAGE</span>
+        <span class="affairs-word affairs-striped">AFFAIRS</span>
+      </div>
+      <span class="mode-badge">Modo 3 — Striped</span>
+      <span class="mode-badge">Impresso · Fundo Claro</span>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- 02 MONOGRAMA -->
+<section class="section" id="monogram">
+  <p class="section-label">02 — Monograma</p>
+  <h2 class="section-title">BA</h2>
+  <p class="section-body">A mesma lógica do logo completo: B sempre sólido e limpo, A sempre com efeito.</p>
+
+  <div class="monogram-showcase">
+    <div class="monogram-block">
+      <div class="monogram-text">
+        <span class="b-letter">B</span><span class="a-letter-fog">A</span>
+      </div>
+      <span class="monogram-label">Fog Animado · Fundo Escuro</span>
+    </div>
+    <div class="monogram-block" style="background:#fff;padding:1.5rem;">
+      <div class="monogram-text" style="color:#000;">
+        <span class="b-letter" style="color:#000;">B</span>
+        <span style="display:inline-block;animation:ba-fog-hero 3.4s ease-in-out infinite;animation-delay:.4s;color:#000;">A</span>
+      </div>
+      <span class="monogram-label" style="color:#999;">Fog Animado · Fundo Claro</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- 03 CORES -->
+<section class="section" id="cores">
+  <p class="section-label">03 — Sistema de Cores</p>
+  <h2 class="section-title">Paleta Principal</h2>
+  <p class="section-body">Monocromático como base. Cobre como acento. Azul como suporte. Nunca misture cores no logo.</p>
+
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#000000;border-bottom:1px solid #2a2a2a;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Black</span>
+        <span class="swatch-hex">#000000</span>
+        <span class="swatch-role">Fundo principal</span>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#ffffff;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">White</span>
+        <span class="swatch-hex">#FFFFFF</span>
+        <span class="swatch-role">Texto principal, logo</span>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#B87333;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Copper</span>
+        <span class="swatch-hex">#B87333</span>
+        <span class="swatch-role">Destaque, acentos</span>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#2B4A6F;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Blue</span>
+        <span class="swatch-hex">#2B4A6F</span>
+        <span class="swatch-role">Destaque secundário</span>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#999999;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">Gray-S</span>
+        <span class="swatch-hex">#999999</span>
+        <span class="swatch-role">Texto secundário</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:3rem;font-size:1rem;font-weight:700;letter-spacing:.06em;color:var(--g7);">LED / Status</h3>
+  <div class="led-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#FF3366;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">LED Red</span>
+        <span class="swatch-hex">#FF3366</span>
+        <span class="swatch-role">Erros, proibições</span>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#00FF88;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">LED Green</span>
+        <span class="swatch-hex">#00FF88</span>
+        <span class="swatch-role">Correto, aprovado</span>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#FFB800;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">LED Amber</span>
+        <span class="swatch-hex">#FFB800</span>
+        <span class="swatch-role">Atenção, cuidado</span>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#00AAFF;"></div>
+      <div class="swatch-info">
+        <span class="swatch-name">LED Blue</span>
+        <span class="swatch-hex">#00AAFF</span>
+        <span class="swatch-role">Informação</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:3rem;font-size:1rem;font-weight:700;letter-spacing:.06em;color:var(--g7);">Escala de Cinza</h3>
+  <div class="gray-strip">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#1a1a1a;"></div>
+      <div class="swatch-info"><span class="swatch-name">G3</span><span class="swatch-hex">#1a1a1a</span></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#2a2a2a;"></div>
+      <div class="swatch-info"><span class="swatch-name">G4</span><span class="swatch-hex">#2a2a2a</span></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#3a3a3a;"></div>
+      <div class="swatch-info"><span class="swatch-name">G5</span><span class="swatch-hex">#3a3a3a</span></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#666666;"></div>
+      <div class="swatch-info"><span class="swatch-name">G6</span><span class="swatch-hex">#666666</span></div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#888888;"></div>
+      <div class="swatch-info"><span class="swatch-name">G7</span><span class="swatch-hex">#888888</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- 04 TIPOGRAFIA -->
+<section class="section" id="tipografia">
+  <p class="section-label">04 — Tipografia</p>
+  <h2 class="section-title">Roboto Condensed</h2>
+  <p class="section-body">Uma família. Quatro pesos permitidos. Pesos 300 e 900 são proibidos.</p>
+
+  <table class="type-table">
+    <thead>
+      <tr>
+        <th>Nível</th>
+        <th>Exemplo</th>
+        <th>Tamanho</th>
+        <th>Peso</th>
+        <th>Uso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="type-meta">Hero</td>
+        <td><span class="type-sample" style="font-size:3.5rem;font-weight:700;">Aa</span></td>
+        <td class="type-meta">72–120px</td>
+        <td class="type-meta">700</td>
+        <td class="type-meta">Logotipo hero</td>
+      </tr>
+      <tr>
+        <td class="type-meta">H1</td>
+        <td><span class="type-sample" style="font-size:2.5rem;font-weight:700;">Heading 1</span></td>
+        <td class="type-meta">40–56px</td>
+        <td class="type-meta">700</td>
+        <td class="type-meta">Títulos de seção</td>
+      </tr>
+      <tr>
+        <td class="type-meta">H2</td>
+        <td><span class="type-sample" style="font-size:1.75rem;font-weight:700;">Heading 2</span></td>
+        <td class="type-meta">28–36px</td>
+        <td class="type-meta">700</td>
+        <td class="type-meta">Subtítulos</td>
+      </tr>
+      <tr>
+        <td class="type-meta">H3</td>
+        <td><span class="type-sample" style="font-size:1.25rem;font-weight:600;">Heading 3</span></td>
+        <td class="type-meta">20–24px</td>
+        <td class="type-meta">600</td>
+        <td class="type-meta">Títulos de card</td>
+      </tr>
+      <tr>
+        <td class="type-meta">Body</td>
+        <td><span class="type-sample" style="font-size:1rem;font-weight:400;">Texto corrido para leitura</span></td>
+        <td class="type-meta">14–16px</td>
+        <td class="type-meta">400</td>
+        <td class="type-meta">Parágrafos</td>
+      </tr>
+      <tr>
+        <td class="type-meta">Caption</td>
+        <td><span class="type-sample" style="font-size:.75rem;font-weight:500;">Label · Legenda</span></td>
+        <td class="type-meta">10–12px</td>
+        <td class="type-meta">500</td>
+        <td class="type-meta">Labels, legendas</td>
+      </tr>
+      <tr>
+        <td class="type-meta">Overline</td>
+        <td><span class="type-sample" style="font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;">CATEGORIA</span></td>
+        <td class="type-meta">9–11px</td>
+        <td class="type-meta">700</td>
+        <td class="type-meta">Categorias</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="divider"/>
+
+<!-- 05 REGRAS -->
+<section class="section" id="regras">
+  <p class="section-label">05 — Regras de Uso</p>
+  <h2 class="section-title">O que fazer.<br/>O que jamais fazer.</h2>
+
+  <div class="rules-grid">
+    <div class="rule-card">
+      <span class="rule-icon" style="color:var(--led-green);">✓</span>
+      <span class="rule-title">BACKSTAGE sempre sólido</span>
+      <p class="rule-desc">A palavra BACKSTAGE nunca recebe blur, sombra, gradiente ou qualquer distorção. É o pilar imóvel da identidade.</p>
+    </div>
+    <div class="rule-card">
+      <span class="rule-icon" style="color:var(--led-red);">✕</span>
+      <span class="rule-title">Nunca "back stage" ou "back-stage"</span>
+      <p class="rule-desc">BACKSTAGE é uma palavra única em todos os contextos — títulos, contratos, posts, código, domínios.</p>
+    </div>
+    <div class="rule-card">
+      <span class="rule-icon" style="color:var(--led-green);">✓</span>
+      <span class="rule-title">AFFAIRS sempre com efeito</span>
+      <p class="rule-desc">Fog animado no digital, blur estático em PPT e imagens estáticas, striped no impresso físico.</p>
+    </div>
+    <div class="rule-card">
+      <span class="rule-icon" style="color:var(--led-red);">✕</span>
+      <span class="rule-title">Nunca misturar cores no logo</span>
+      <p class="rule-desc">O logo é sempre monocromático: tudo branco ou tudo preto. Nunca BACKSTAGE branco + AFFAIRS cobre.</p>
+    </div>
+    <div class="rule-card">
+      <span class="rule-icon" style="color:var(--led-green);">✓</span>
+      <span class="rule-title">Monocromático em todos os usos</span>
+      <p class="rule-desc">Apenas branco em fundo escuro, ou preto em fundo claro. Versões coloridas do logo são proibidas.</p>
+    </div>
+    <div class="rule-card">
+      <span class="rule-icon" style="color:var(--led-red);">✕</span>
+      <span class="rule-title">Striped jamais em telas</span>
+      <p class="rule-desc">O modo Striped é exclusivo para materiais impressos. Proibido em site, app, PPT, redes sociais e e-mail.</p>
+    </div>
+    <div class="rule-card">
+      <span class="rule-icon" style="color:var(--led-green);">✓</span>
+      <span class="rule-title">Clear space de 200px no digital</span>
+      <p class="rule-desc">Mantenha ao menos 200px de espaço limpo em torno do logo em todos os lados em contextos digitais.</p>
+    </div>
+    <div class="rule-card">
+      <span class="rule-icon" style="color:var(--led-red);">✕</span>
+      <span class="rule-title">Nunca rotacionar ou deformar</span>
+      <p class="rule-desc">O logo não pode ser inclinado, espelhado, distorcido, esticado ou comprimido em nenhuma situação.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- 06 MATRIZ DE DECISÃO -->
+<section class="section" id="matriz">
+  <p class="section-label">06 — Matriz de Decisão</p>
+  <h2 class="section-title">Qual modo usar?</h2>
+  <p class="section-body">Para cada contexto, existe um modo correto. Dúvida? Siga esta tabela.</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>Contexto</th>
+        <th>Modo</th>
+        <th>Justificativa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Website / HTML / App</td>
+        <td><span class="badge-mode badge-fog">★ Fog Animado</span></td>
+        <td class="type-meta">Suporte nativo a CSS animation</td>
+      </tr>
+      <tr>
+        <td>Vídeo / Motion / Reels</td>
+        <td><span class="badge-mode badge-fog">★ Fog Animado</span></td>
+        <td class="type-meta">Movimento reforça a identidade</td>
+      </tr>
+      <tr>
+        <td>PPT / Google Slides</td>
+        <td><span class="badge-mode badge-blur">Blur Estático</span></td>
+        <td class="type-meta">Sem suporte a CSS animation</td>
+      </tr>
+      <tr>
+        <td>Social Media (imagem)</td>
+        <td><span class="badge-mode badge-blur">Blur Estático</span></td>
+        <td class="type-meta">Export estático</td>
+      </tr>
+      <tr>
+        <td>PDF Digital</td>
+        <td><span class="badge-mode badge-blur">Blur Estático</span></td>
+        <td class="type-meta">Sem renderização CSS</td>
+      </tr>
+      <tr>
+        <td>Contrato / Proposta impressa</td>
+        <td><span class="badge-mode badge-stripe">Striped</span></td>
+        <td class="type-meta">Contexto físico</td>
+      </tr>
+      <tr>
+        <td>Crachás / Camisetas / Merch</td>
+        <td><span class="badge-mode badge-stripe">Striped</span></td>
+        <td class="type-meta">Produção física</td>
+      </tr>
+      <tr>
+        <td>Sinalização / Banner</td>
+        <td><span class="badge-mode badge-stripe">Striped</span></td>
+        <td class="type-meta">Impressão em grande formato</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="divider"/>
+
+<!-- 07 ARQUIVOS -->
+<section class="section" id="arquivos">
+  <p class="section-label">07 — Arquivos de Logo</p>
+  <h2 class="section-title">Formatos &amp; Usos</h2>
+  <p class="section-body">Para impresso: use SVG ou PDF vetorial. Para digital: CSS animation — nunca imagem. Para compartilhar: PNG em alta resolução.</p>
+
+  <div class="asset-grid">
+    <div class="asset-card">
+      <span class="asset-icon">⬛</span>
+      <span class="asset-name">Stacked · White · Striped</span>
+      <span class="asset-format">backstage_affairs_stacked_striped_white.svg</span>
+      <p class="asset-use">Impresso em fundo escuro. Formato SVG + PDF.</p>
+    </div>
+    <div class="asset-card">
+      <span class="asset-icon">⬜</span>
+      <span class="asset-name">Stacked · Black · Striped</span>
+      <span class="asset-format">backstage_affairs_stacked_striped_black.svg</span>
+      <p class="asset-use">Impresso em fundo claro. Formato SVG + PDF.</p>
+    </div>
+    <div class="asset-card">
+      <span class="asset-icon">⬛</span>
+      <span class="asset-name">Horizontal · White · Striped</span>
+      <span class="asset-format">backstage_affairs_horizontal_striped_white.svg</span>
+      <p class="asset-use">Impresso horizontal, fundo escuro. SVG + PDF.</p>
+    </div>
+    <div class="asset-card">
+      <span class="asset-icon">⬜</span>
+      <span class="asset-name">Horizontal · Black · Striped</span>
+      <span class="asset-format">backstage_affairs_horizontal_striped_black.svg</span>
+      <p class="asset-use">Impresso horizontal, fundo claro. SVG + PDF.</p>
+    </div>
+    <div class="asset-card">
+      <span class="asset-icon">🖥</span>
+      <span class="asset-name">Digital — CSS Animation</span>
+      <span class="asset-format">Nenhum arquivo — gerado por código</span>
+      <p class="asset-use">O efeito fog/blur é sempre gerado por CSS animation. Nunca use imagem em contexto web.</p>
+    </div>
+    <div class="asset-card">
+      <span class="asset-icon">🖼</span>
+      <span class="asset-name">PNG Alta Resolução</span>
+      <span class="asset-format">Mín. 1600px · fundo incluído</span>
+      <p class="asset-use">Para compartilhar com IA, ferramentas de design e parceiros. Fundo preto ou branco incluído.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- 08 VOZ E TOM -->
+<section class="section" id="voz">
+  <p class="section-label">08 — Voz &amp; Tom</p>
+  <h2 class="section-title">Precisão técnica.<br/>Postura executiva.</h2>
+  <p class="section-body">A Backstage Affairs comunica com clareza e autoridade. Nunca informal demais, nunca distante. Os bastidores são visíveis — transparência sobre processo é parte da marca.</p>
+
+  <div class="principles-grid">
+    <div class="principle-card">
+      <span class="principle-number">01</span>
+      <span class="principle-title">Clareza antes de estética</span>
+      <p class="principle-body">Nunca sacrificamos entendimento por elegância. Se a mensagem não é clara, a forma não importa.</p>
+    </div>
+    <div class="principle-card">
+      <span class="principle-number">02</span>
+      <span class="principle-title">Autoridade sem arrogância</span>
+      <p class="principle-body">Sabemos o que fazemos, mas não precisamos anunciar. Nossa competência fala por si mesma.</p>
+    </div>
+    <div class="principle-card">
+      <span class="principle-number">03</span>
+      <span class="principle-title">Bastidores visíveis</span>
+      <p class="principle-body">Transparência sobre processo e metodologia é parte da marca. Mostramos o trabalho, não apenas o resultado.</p>
+    </div>
+    <div class="principle-card">
+      <span class="principle-number">04</span>
+      <span class="principle-title">Precisão nos números</span>
+      <p class="principle-body">Dados e métricas sempre que possível. Evitamos afirmações vagas — preferimos ser específicos.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">
+    BACKSTAGE <span class="affairs-blur">AFFAIRS</span>
+  </div>
+  <p class="footer-copy">Brand System · Versão 3.1 · Abril 2026</p>
+  <p class="footer-copy" style="color:var(--g5);">Uso interno — não distribuir sem autorização</p>
+</footer>
+
+<style>
+/* Light bg fog animation (dark letters) */
+@keyframes ba-fog-light{
+  0%,100%{
+    filter:blur(0.05em);
+    text-shadow:0 0 0.5em rgba(0,0,0,.2),0 0 1em rgba(0,0,0,.1);
+  }
+  50%{
+    filter:blur(0.085em);
+    text-shadow:0 0 0.7em rgba(0,0,0,.32),0 0 1.4em rgba(0,0,0,.16);
+  }
+}
+</style>
+
+<script>
+// ── Sync stacked logo widths: AFFAIRS width = BACKSTAGE width ──
+function syncAllStacked(){
+  document.querySelectorAll('[data-stacked]').forEach(logo=>{
+    const backEl=logo.querySelector('.backstage-word');
+    const affEl=logo.querySelector('.affairs-word');
+    if(!backEl||!affEl) return;
+    const targetW=backEl.offsetWidth;
+    const base=parseFloat(getComputedStyle(backEl).fontSize)||20;
+    affEl.style.fontSize=base+'px';
+    const baseW=affEl.offsetWidth;
+    if(baseW>0) affEl.style.fontSize=(base*(targetW/baseW))+'px';
+  });
+}
+// Hero logo
+function syncHero(){
+  const backEl=document.getElementById('hero-back');
+  const affEl=document.getElementById('hero-aff');
+  if(!backEl||!affEl) return;
+  const targetW=backEl.offsetWidth;
+  const base=parseFloat(getComputedStyle(backEl).fontSize)||20;
+  affEl.style.fontSize=base+'px';
+  const baseW=affEl.offsetWidth;
+  if(baseW>0) affEl.style.fontSize=(base*(targetW/baseW))+'px';
+}
+window.addEventListener('load',()=>{syncAllStacked();syncHero();});
+window.addEventListener('resize',()=>{syncAllStacked();syncHero();});
+</script>
+</body>
+</html>
