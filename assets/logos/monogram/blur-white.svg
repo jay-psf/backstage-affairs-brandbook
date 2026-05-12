@@ -1,13 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 473 368" preserveAspectRatio="xMidYMid meet">
   <defs>
-    <filter id="ba-blur" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5"/>
+    <filter id="ba-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12"/>
+    </filter>
+    <filter id="ba-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+      <feComponentTransfer><feFuncA type="linear" slope="1.4"/></feComponentTransfer>
     </filter>
   </defs>
   <g transform="translate(38,333)" fill="#FFFFFF">
     <path d="M610 635H311L310 847H564Q624 847 662.5 867.5Q701 888 719.5 928.5Q738 969 738 1027Q738 1094 720.5 1134.5Q703 1175 665.5 1194.0Q628 1213 567 1213H411V0H118V1456H567Q675 1456 761.0 1432.0Q847 1408 907.0 1358.5Q967 1309 999.0 1234.5Q1031 1160 1031 1058Q1031 968 995.0 892.0Q959 816 882.0 767.5Q805 719 683 714ZM599 0H228L345 242H599Q658 242 693.0 267.0Q728 292 744.5 334.5Q761 377 761 432Q761 494 746.5 540.0Q732 586 699.0 610.5Q666 635 610 635H358L360 847H666L735 763Q852 767 922.0 718.5Q992 670 1022.5 592.5Q1053 515 1053 428Q1053 288 1000.5 192.5Q948 97 847.0 48.5Q746 0 599 0Z" transform="translate(0,0) scale(0.15625,-0.15625)"/>
   </g>
-  <g transform="translate(38,333)" fill="#FFFFFF" filter="url(#ba-blur)" opacity="0.92">
+  <g transform="translate(38,333)" fill="#FFFFFF" filter="url(#ba-glow)" opacity="0.4">
+    <path d="M645 1196 332 0H23L478 1456H671ZM892 0 577 1196 548 1456H744L1203 0ZM903 543V300H246V543Z" transform="translate(205.13125,0) scale(0.15625,-0.15625)"/>
+  </g>
+  <g transform="translate(38,333)" fill="#FFFFFF" filter="url(#ba-blur)" opacity="0.95">
     <path d="M645 1196 332 0H23L478 1456H671ZM892 0 577 1196 548 1456H744L1203 0ZM903 543V300H246V543Z" transform="translate(205.13125,0) scale(0.15625,-0.15625)"/>
   </g>
 </svg>
