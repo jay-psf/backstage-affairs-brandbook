@@ -110,10 +110,10 @@ img{max-width:100%;display:block}
   white-space:nowrap;
 }
 
-/* ── FOG ANIMATION (hero) ── */
+/* ── FOG ANIMATION (hero) — blur marcante consistente com SVGs ── */
 @keyframes ba-fog-hero{
-  0%,100%{filter:blur(2px);text-shadow:0 0 14px rgba(255,255,255,.35),0 0 28px rgba(255,255,255,.18);}
-  50%     {filter:blur(3.5px);text-shadow:0 0 20px rgba(255,255,255,.5),0 0 40px rgba(255,255,255,.25);}
+  0%,100%{filter:blur(5px);text-shadow:0 0 24px rgba(255,255,255,.5),0 0 48px rgba(255,255,255,.25);}
+  50%     {filter:blur(8px);text-shadow:0 0 36px rgba(255,255,255,.7),0 0 72px rgba(255,255,255,.35);}
 }
 .ba-fog-hero-letter{
   display:inline-block;
@@ -250,62 +250,25 @@ img{max-width:100%;display:block}
 }
 .logo-card.light-bg .logo-card-label{color:#aaa}
 
-/* Stacked logo inside cards */
-.logo-stacked-card{
-  display:inline-flex;
-  flex-direction:column;
-  align-items:flex-start;
-  line-height:1;
+/* Logo display dentro dos cards — SVG estático */
+.logo-display{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:.5rem 0;
+  min-height:90px;
 }
-.logo-stacked-card .backstage-word{
-  font-size:clamp(1.4rem,3.5vw,2.8rem);
-  font-weight:700;
-  letter-spacing:-.01em;
-  white-space:nowrap;
+.logo-display img{
+  max-width:100%;
+  max-height:120px;
+  height:auto;
+  object-fit:contain;
+  display:block;
 }
-.logo-stacked-card .affairs-word{
-  font-weight:700;
-  letter-spacing:-.01em;
-  white-space:nowrap;
-}
-
-/* Horizontal logo inside cards */
-.logo-horizontal-card{
-  display:inline-flex;
-  align-items:baseline;
-  gap:.4em;
-  line-height:1;
-}
-.logo-horizontal-card .backstage-word,
-.logo-horizontal-card .affairs-word{
-  font-size:clamp(1.2rem,3vw,2.2rem);
-  font-weight:700;
-  letter-spacing:-.01em;
-  white-space:nowrap;
-}
-
-/* Striped */
-.affairs-striped{
-  background:repeating-linear-gradient(0deg,currentColor 0,currentColor 3px,transparent 3px,transparent 4px);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.logo-card.light-bg .affairs-striped{
-  background:repeating-linear-gradient(0deg,#000 0,#000 3px,transparent 3px,transparent 4px);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-/* Blur static */
-.affairs-blur-static{
-  filter:blur(1.2px);
-  text-shadow:0 0 8px rgba(255,255,255,.3);
-}
-.logo-card.light-bg .affairs-blur-static{
-  filter:blur(1.2px);
-  text-shadow:0 0 8px rgba(0,0,0,.2);
+.logo-display.monogram img{
+  max-height:100px;
+  max-width:160px;
 }
 
 /* Mode badge */
@@ -325,34 +288,6 @@ img{max-width:100%;display:block}
 .logo-card.light-bg .mode-badge{
   border-color:#bbb;
   color:#999;
-}
-
-/* ── MONOGRAM ── */
-.monogram-showcase{
-  display:flex;gap:3rem;flex-wrap:wrap;
-  margin-top:3rem;
-}
-.monogram-block{
-  display:flex;flex-direction:column;
-  align-items:flex-start;
-  gap:1rem;
-}
-.monogram-text{
-  font-size:clamp(3rem,8vw,6rem);
-  font-weight:700;
-  line-height:1;
-  letter-spacing:-.02em;
-}
-.monogram-text .b-letter{color:#fff}
-.monogram-text .a-letter-fog{
-  display:inline-block;
-  animation:ba-fog-hero 3.4s ease-in-out infinite;
-  animation-delay:.4s;
-}
-.monogram-label{
-  font-size:.65rem;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--g6);
 }
 
 /* ── COLOR SYSTEM ── */
@@ -748,66 +683,54 @@ img{max-width:100%;display:block}
   <div class="logo-grid">
 
     <div class="logo-card">
-      <span class="logo-card-label">Stacked · Dark</span>
-      <div class="logo-stacked-card" data-stacked>
-        <span class="backstage-word">BACKSTAGE</span>
-        <span class="affairs-word">
-          <span class="ba-fog-letter">A</span><span class="ba-fog-letter">F</span><span class="ba-fog-letter">F</span><span class="ba-fog-letter">A</span><span class="ba-fog-letter">I</span><span class="ba-fog-letter">R</span><span class="ba-fog-letter">S</span>
-        </span>
+      <span class="logo-card-label">Stacked · Blur · Dark</span>
+      <div class="logo-display">
+        <img src="/assets/logos/stacked/blur-white.svg?v=3" alt="Stacked Blur Branco" loading="lazy"/>
       </div>
       <span class="mode-badge primary">★ Modo 1 — Fog Animado</span>
       <span class="mode-badge">Digital Primário</span>
     </div>
 
     <div class="logo-card light-bg">
-      <span class="logo-card-label">Stacked · Light</span>
-      <div class="logo-stacked-card" data-stacked>
-        <span class="backstage-word">BACKSTAGE</span>
-        <span class="affairs-word">
-          <span class="ba-fog-letter" style="animation-name:ba-fog-light">A</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">F</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">F</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">A</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">I</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">R</span><span class="ba-fog-letter" style="animation-name:ba-fog-light">S</span>
-        </span>
+      <span class="logo-card-label">Stacked · Blur · Light</span>
+      <div class="logo-display">
+        <img src="/assets/logos/stacked/blur-black.svg?v=3" alt="Stacked Blur Preto" loading="lazy"/>
       </div>
       <span class="mode-badge primary">★ Modo 1 — Fog Animado</span>
       <span class="mode-badge">Digital Primário</span>
     </div>
 
     <div class="logo-card">
-      <span class="logo-card-label">Stacked · Blur Estático</span>
-      <div class="logo-stacked-card" data-stacked>
-        <span class="backstage-word">BACKSTAGE</span>
-        <span class="affairs-word affairs-blur-static">AFFAIRS</span>
-      </div>
-      <span class="mode-badge">Modo 2 — Blur Estático</span>
-      <span class="mode-badge">Digital Secundário</span>
-    </div>
-
-    <div class="logo-card">
-      <span class="logo-card-label">Stacked · Striped</span>
-      <div class="logo-stacked-card" data-stacked>
-        <span class="backstage-word">BACKSTAGE</span>
-        <span class="affairs-word affairs-striped">AFFAIRS</span>
+      <span class="logo-card-label">Stacked · Striped · Dark</span>
+      <div class="logo-display">
+        <img src="/assets/logos/stacked/striped-white.svg?v=3" alt="Stacked Striped Branco" loading="lazy"/>
       </div>
       <span class="mode-badge">Modo 3 — Striped</span>
-      <span class="mode-badge">Impresso Apenas</span>
+      <span class="mode-badge">Impresso · Fundo Escuro</span>
     </div>
 
     <div class="logo-card">
-      <span class="logo-card-label">Horizontal · Dark</span>
-      <div class="logo-horizontal-card">
-        <span class="backstage-word">BACKSTAGE</span>
-        <span class="affairs-word">
-          <span class="ba-fog-letter">A</span><span class="ba-fog-letter">F</span><span class="ba-fog-letter">F</span><span class="ba-fog-letter">A</span><span class="ba-fog-letter">I</span><span class="ba-fog-letter">R</span><span class="ba-fog-letter">S</span>
-        </span>
+      <span class="logo-card-label">Horizontal · Blur · Dark</span>
+      <div class="logo-display">
+        <img src="/assets/logos/horizontal/blur-white.svg?v=3" alt="Horizontal Blur Branco" loading="lazy"/>
       </div>
       <span class="mode-badge primary">★ Modo 1 — Fog Animado</span>
       <span class="mode-badge">Horizontal</span>
     </div>
 
     <div class="logo-card light-bg">
-      <span class="logo-card-label">Horizontal · Light · Striped</span>
-      <div class="logo-horizontal-card">
-        <span class="backstage-word">BACKSTAGE</span>
-        <span class="affairs-word affairs-striped">AFFAIRS</span>
+      <span class="logo-card-label">Horizontal · Blur · Light</span>
+      <div class="logo-display">
+        <img src="/assets/logos/horizontal/blur-black.svg?v=3" alt="Horizontal Blur Preto" loading="lazy"/>
+      </div>
+      <span class="mode-badge primary">★ Modo 1 — Fog Animado</span>
+      <span class="mode-badge">Horizontal · Fundo Claro</span>
+    </div>
+
+    <div class="logo-card light-bg">
+      <span class="logo-card-label">Horizontal · Striped · Light</span>
+      <div class="logo-display">
+        <img src="/assets/logos/horizontal/striped-black.svg?v=3" alt="Horizontal Striped Preto" loading="lazy"/>
       </div>
       <span class="mode-badge">Modo 3 — Striped</span>
       <span class="mode-badge">Impresso · Fundo Claro</span>
@@ -822,22 +745,46 @@ img{max-width:100%;display:block}
 <section class="section" id="monogram">
   <p class="section-label">02 — Monograma</p>
   <h2 class="section-title">BA</h2>
-  <p class="section-body">A mesma lógica do logo completo: B sempre sólido e limpo, A sempre com efeito.</p>
+  <p class="section-body">A mesma lógica do logo completo: B sempre sólido e limpo, A sempre com efeito. Use o monograma para favicons, avatares, selos e qualquer contexto compacto.</p>
 
-  <div class="monogram-showcase">
-    <div class="monogram-block">
-      <div class="monogram-text">
-        <span class="b-letter">B</span><span class="a-letter-fog">A</span>
+  <div class="logo-grid">
+
+    <div class="logo-card">
+      <span class="logo-card-label">Monograma · Blur · Dark</span>
+      <div class="logo-display monogram">
+        <img src="/assets/logos/monogram/blur-white.svg?v=3" alt="Monograma Blur Branco" loading="lazy"/>
       </div>
-      <span class="monogram-label">Fog Animado · Fundo Escuro</span>
+      <span class="mode-badge primary">★ Modo 1 — Fog Animado</span>
+      <span class="mode-badge">Favicon · Avatar</span>
     </div>
-    <div class="monogram-block" style="background:#fff;padding:1.5rem;">
-      <div class="monogram-text" style="color:#000;">
-        <span class="b-letter" style="color:#000;">B</span>
-        <span style="display:inline-block;animation:ba-fog-hero 3.4s ease-in-out infinite;animation-delay:.4s;color:#000;">A</span>
+
+    <div class="logo-card light-bg">
+      <span class="logo-card-label">Monograma · Blur · Light</span>
+      <div class="logo-display monogram">
+        <img src="/assets/logos/monogram/blur-black.svg?v=3" alt="Monograma Blur Preto" loading="lazy"/>
       </div>
-      <span class="monogram-label" style="color:#999;">Fog Animado · Fundo Claro</span>
+      <span class="mode-badge primary">★ Modo 1 — Fog Animado</span>
+      <span class="mode-badge">Favicon · Avatar</span>
     </div>
+
+    <div class="logo-card">
+      <span class="logo-card-label">Monograma · Striped · Dark</span>
+      <div class="logo-display monogram">
+        <img src="/assets/logos/monogram/striped-white.svg?v=3" alt="Monograma Striped Branco" loading="lazy"/>
+      </div>
+      <span class="mode-badge">Modo 3 — Striped</span>
+      <span class="mode-badge">Selo · Impresso</span>
+    </div>
+
+    <div class="logo-card light-bg">
+      <span class="logo-card-label">Monograma · Striped · Light</span>
+      <div class="logo-display monogram">
+        <img src="/assets/logos/monogram/striped-black.svg?v=3" alt="Monograma Striped Preto" loading="lazy"/>
+      </div>
+      <span class="mode-badge">Modo 3 — Striped</span>
+      <span class="mode-badge">Selo · Impresso</span>
+    </div>
+
   </div>
 </section>
 
@@ -1365,19 +1312,7 @@ img{max-width:100%;display:block}
 </footer>
 
 <script>
-// ── Sync stacked logo widths: AFFAIRS width = BACKSTAGE width ──
-function syncAllStacked(){
-  document.querySelectorAll('[data-stacked]').forEach(logo=>{
-    const backEl=logo.querySelector('.backstage-word');
-    const affEl=logo.querySelector('.affairs-word');
-    if(!backEl||!affEl) return;
-    const targetW=backEl.offsetWidth;
-    const base=parseFloat(getComputedStyle(backEl).fontSize)||20;
-    affEl.style.fontSize=base+'px';
-    const baseW=affEl.offsetWidth;
-    if(baseW>0) affEl.style.fontSize=(base*(targetW/baseW))+'px';
-  });
-}
+// ── Sync hero logo: AFFAIRS width = BACKSTAGE width ──
 function syncHero(){
   const backEl=document.getElementById('hero-back');
   const affEl=document.getElementById('hero-aff');
@@ -1388,8 +1323,8 @@ function syncHero(){
   const baseW=affEl.offsetWidth;
   if(baseW>0) affEl.style.fontSize=(base*(targetW/baseW))+'px';
 }
-window.addEventListener('load',()=>{syncAllStacked();syncHero();});
-window.addEventListener('resize',()=>{syncAllStacked();syncHero();});
+window.addEventListener('load',syncHero);
+window.addEventListener('resize',syncHero);
 </script>
 </body>
 </html>
