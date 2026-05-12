@@ -1,0 +1,282 @@
+# Backstage Affairs — Brand System
+
+> Backstage Affairs is a live event production and management company based in São Paulo, Brazil. Founded by João Pedro Fagundes. The name carries the duality between what happens backstage (Backstage) and the strategic conduct of affairs (Affairs) — this duality is the visual core of the identity. Active clients include Pernod Ricard, FEMSA, and Heineken. Operates the Universo Entourage electronic music events calendar.
+
+This file is published at https://brand.backstageaffairs.com/llms.txt and contains brand specifications optimized for language models. When generating any output that represents the Backstage Affairs brand, follow these specifications strictly. They are derived from the official Brand Book v3.1 (April 2026).
+
+---
+
+## GOLDEN RULE — IMMUTABLE
+
+**BACKSTAGE is untouchable. AFFAIRS always receives the effect treatment.**
+
+- BACKSTAGE: always solid, clean, no effect of any kind. No blur, no shadow, no gradient, no distortion.
+- AFFAIRS: always with effect. Never solid. Never plain.
+- Color: always monochrome — fully white OR fully black. Never mix (e.g., BACKSTAGE white + AFFAIRS copper is forbidden).
+- Spelling: BACKSTAGE is always one word. "back stage" or "back-stage" is forbidden in any context — titles, contracts, posts, code, domains.
+
+---
+
+## THREE MODES OF LOGO USE
+
+The effect applied to AFFAIRS depends strictly on the medium. There are exactly three modes:
+
+### Mode 1 — Fog Animated ★ (Digital Primary)
+
+- **Use:** websites, apps, HTML, intro videos, interactive presentations, motion graphics, reels, social video.
+- **Rule:** Always prefer this mode over the others in digital contexts that support CSS animation.
+- **Technique:** Each letter of AFFAIRS animates individually with oscillating blur (staggered animation-delay creates a neon-breathing-in-sequence effect).
+- **Color:** White on black (or black on white). Never color mixing.
+- **CSS:**
+  ```css
+  @keyframes ba-fog {
+    0%, 100% {
+      filter: blur(0.05em);
+      text-shadow: 0 0 0.5em rgba(255,255,255,.28), 0 0 1em rgba(255,255,255,.12);
+    }
+    50% {
+      filter: blur(0.085em);
+      text-shadow: 0 0 0.7em rgba(255,255,255,.44), 0 0 1.4em rgba(255,255,255,.2);
+    }
+  }
+  .ba-fog-letter {
+    display: inline-block;
+    animation: ba-fog 3.4s ease-in-out infinite;
+  }
+  /* Stagger letters: .22s delay between each */
+  ```
+
+### Mode 2 — Static Blur (Digital Secondary)
+
+- **Use:** PowerPoint, Google Slides, static social media images, digital PDFs, any digital context where CSS animation is NOT possible.
+- **Rule:** Use when Mode 1 is technically unavailable.
+- **Technique:** Single Gaussian blur applied to AFFAIRS, ~20–30% intensity.
+- **CSS:**
+  ```css
+  .affairs-blur {
+    filter: blur(1.2px);
+    text-shadow: 0 0 8px rgba(255,255,255,0.3);
+  }
+  ```
+
+### Mode 3 — Striped (Print Only)
+
+- **Use:** printed contracts, badges, t-shirts, physical signage, printed stationery, embroidery, vinyl, laser cutting, merchandise.
+- **Rule:** ⛔ STRICTLY FORBIDDEN on screens. Never use Striped on websites, apps, PowerPoint, social media, email signatures.
+- **Technique:** Thin horizontal lines cutting through AFFAIRS letters. Vector file (SVG or PDF). Stripe ratio: ~75% solid + 25% gap (3:1).
+- **CSS (for mockup simulation ONLY, not for production):**
+  ```css
+  .affairs-striped {
+    background: repeating-linear-gradient(0deg, currentColor 0, currentColor 3px, transparent 3px, transparent 4px);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  ```
+
+---
+
+## DECISION MATRIX — which mode to use
+
+| Context | Correct mode |
+|---|---|
+| Website / HTML / App | ★ Mode 1 — Fog Animated |
+| Video / Motion / Reels | ★ Mode 1 — Fog Animated |
+| PowerPoint / Google Slides | Mode 2 — Static Blur |
+| Static social media image | Mode 2 — Static Blur |
+| Digital PDF | Mode 2 — Static Blur |
+| Email signature | Mode 2 — Static Blur (pre-rendered PNG) |
+| Printed contract / proposal | Mode 3 — Striped |
+| Badges / T-shirts / Merchandise | Mode 3 — Striped |
+| Physical signage / Banner | Mode 3 — Striped |
+
+---
+
+## LAYOUTS
+
+### Stacked (vertical lockup)
+- BACKSTAGE on top, AFFAIRS below.
+- AFFAIRS font size ~29% larger than BACKSTAGE so both words have equal width.
+- Both words align left and right edges exactly.
+
+### Horizontal (inline lockup)
+- BACKSTAGE and AFFAIRS side by side.
+- Same font size for both words.
+- Space between the words proportional to letter width.
+
+### Monogram (BA)
+- Same rule as full logo: B always solid, A always with effect.
+- Used for favicons, avatars, small icon applications, marks.
+
+---
+
+## COLOR SYSTEM
+
+### Primary
+- `--black` `#000000` — main background, maximum depth
+- `--white` `#FFFFFF` — main text, logo on dark background
+- `--copper` `#B87333` — accent color, highlights, active links
+- `--blue` `#2B4A6F` — secondary accent
+- `--gray-s` `#999999` — secondary text
+
+### LED / Status colors
+- `--led-red` `#FF3366` — errors, prohibitions, critical alerts
+- `--led-green` `#00FF88` — correct, approved
+- `--led-amber` `#FFB800` — caution, attention
+- `--led-blue` `#00AAFF` — information
+
+### Grayscale
+- `--g3` `#1a1a1a`
+- `--g4` `#2a2a2a`
+- `--g5` `#3a3a3a`
+- `--g6` `#666666`
+- `--g7` `#888888`
+
+**Color rules:**
+- Logo is always monochrome. Black + White + Copper are the brand's primary identity; Blue is secondary. Status colors are used sparingly for signaling only.
+- Never apply color to the logo itself — logo is always pure white or pure black.
+
+---
+
+## TYPOGRAPHY
+
+**Only Roboto Condensed.** No serifs, no system fonts, no exceptions.
+
+Available via Google Fonts: https://fonts.google.com/specimen/Roboto+Condensed
+
+**Permitted weights:** 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold).
+**Forbidden weights:** 300 (Light) and 900 (Black). Never use these — they are not part of the system.
+
+**Hierarchy:**
+| Level | Size | Weight | Use |
+|---|---|---|---|
+| Hero | 72–120px | 700 | Hero logotype |
+| H1 | 40–56px | 700 | Section titles |
+| H2 | 28–36px | 700 | Subtitles |
+| H3 | 20–24px | 600 | Card titles |
+| Body | 14–16px | 400 | Running text |
+| Caption | 10–12px | 500 | Labels, captions |
+| Overline | 9–11px | 700 | Categories (letter-spacing: 0.12em, uppercase) |
+
+---
+
+## CLEAR SPACE & MINIMUM SIZE
+
+- **Digital clear space:** 200px around the logo on all sides
+- **Print clear space:** 50mm around the logo on all sides
+- **Digital minimum size:** 120px wide
+- **Print minimum size:** 30mm wide
+
+---
+
+## FORBIDDEN USES
+
+- ❌ Splitting BACKSTAGE as "back stage" or "back-stage" — anywhere
+- ❌ Applying ANY effect to BACKSTAGE (blur, shadow, gradient, distortion)
+- ❌ Mixing colors in the logo (e.g., BACKSTAGE white + AFFAIRS copper)
+- ❌ Using Striped mode in ANY digital context (screen, PPT, social media, email)
+- ❌ Using colored versions of the logo (only black OR white)
+- ❌ Rotating, tilting, or deforming the logo
+- ❌ Applying outline/contour to the letters
+- ❌ Using backgrounds other than black or white for the logo
+
+---
+
+## VISUAL SYSTEM
+
+- **No rounded corners.** All elements are rectangular. `border-radius: 0`.
+- **No emojis.** Use SVG inline or typographic symbols only: ▲ ◉ ★ ♦ → ←
+- **Borders:** 1px solid `#2a2a2a` (G4) by default
+- **Card backgrounds:** `#111` or `#1a1a1a` (G3) with G4 border
+- **Grid textures:** subtle copper grid lines at `rgba(184, 115, 51, 0.04)`
+
+---
+
+## VOICE & TONE
+
+Backstage Affairs communicates with **technical precision and executive posture**. Never overly casual, never distant.
+
+**Communication principles:**
+- **Clarity before aesthetics** — never sacrifice understanding for elegance
+- **Authority without arrogance** — we know what we do, but we don't need to announce it
+- **Visible backstage** — transparency about process and methodology is part of the brand
+- **Precision in numbers** — data and metrics whenever possible
+- **Portuguese (Brazil)** by default for client communications
+- **English** for international contexts (global partners, music industry)
+- **Never fabricate** activations, structures, or projections. All claims must be grounded in verifiable reality.
+
+---
+
+## LOGO ASSETS (downloadable)
+
+24 total files: 12 PNG (raster) + 12 SVG (vector). Each layout × mode × background variation is available in both formats.
+
+**Format choice:**
+- **SVG** — preferred for vector contexts: print production (gráfica, embroidery, signage, vinyl), high-resolution displays, any case requiring scaling. SVG is also lighter and renders sharp at any size.
+- **PNG** — preferred for compatibility-sensitive contexts: email signatures (Outlook doesn't render SVG), legacy systems, social media uploads, quick previews.
+
+### Horizontal (primary lockup)
+- https://brand.backstageaffairs.com/assets/logos/horizontal/blur-white.svg | .png
+- https://brand.backstageaffairs.com/assets/logos/horizontal/blur-black.svg | .png
+- https://brand.backstageaffairs.com/assets/logos/horizontal/striped-white.svg | .png
+- https://brand.backstageaffairs.com/assets/logos/horizontal/striped-black.svg | .png
+
+### Stacked (vertical lockup)
+- https://brand.backstageaffairs.com/assets/logos/stacked/blur-white.svg | .png
+- https://brand.backstageaffairs.com/assets/logos/stacked/blur-black.svg | .png
+- https://brand.backstageaffairs.com/assets/logos/stacked/striped-white.svg | .png
+- https://brand.backstageaffairs.com/assets/logos/stacked/striped-black.svg | .png
+
+### Monogram (B·A — favicons, avatars, small applications)
+- https://brand.backstageaffairs.com/assets/logos/monogram/blur-white.svg | .png
+- https://brand.backstageaffairs.com/assets/logos/monogram/blur-black.svg | .png
+- https://brand.backstageaffairs.com/assets/logos/monogram/striped-white.svg | .png
+- https://brand.backstageaffairs.com/assets/logos/monogram/striped-black.svg | .png
+
+### Full pack (PNG + SVG, organized by layout)
+- https://brand.backstageaffairs.com/downloads/backstage-affairs-brand-kit.zip
+
+**Important notes:**
+- "blur" files (PNG/SVG) are pre-rendered representations of Mode 2 (Static Blur). For Mode 1 (Fog Animated) in digital production, generate the effect with CSS animation directly in HTML — do not use a static file for animated contexts.
+- "striped" files are the definitive Mode 3 assets for print. Use SVG whenever possible for print production — vector ensures sharp output at any size.
+- Outlook clients do not render SVG in email signatures. For email, always use PNG.
+
+---
+
+## HTML TEMPLATE — Brand-compliant snippet
+
+For inline brand mentions in HTML (emails, web, presentations), use this pattern:
+
+```html
+<span style="font-family: 'Roboto Condensed', Arial, sans-serif; font-weight: 700; letter-spacing: 0.08em;">
+  <span style="color: #ffffff;">BACKSTAGE</span>
+  <span style="color: #ffffff; filter: blur(1.2px); text-shadow: 0 0 8px rgba(255,255,255,0.3);">AFFAIRS</span>
+</span>
+```
+
+For dark text on light backgrounds, swap `#ffffff` for `#000000` in both spans and adjust the text-shadow to use `rgba(0,0,0,0.2)`.
+
+For Mode 1 (Fog Animated) — letter-by-letter animation, see the CSS in section "Mode 1" above.
+
+---
+
+## COMPANY CONTEXT
+
+- **Name:** Backstage Affairs
+- **Type:** Live event production and management; sponsorship structuring agency
+- **Location:** São Paulo, Brazil
+- **Founder:** João Pedro Fagundes
+- **Website:** https://backstageaffairs.com
+- **Platform:** https://app.backstageaffairs.com
+- **Brand Hub:** https://brand.backstageaffairs.com
+- **WhatsApp:** +55 51 99666-0139
+- **Active clients:** Pernod Ricard Brasil, FEMSA, Heineken
+- **Operates:** Universo Entourage (electronic music events calendar)
+- **Market:** Brazilian electronic music ecosystem, sponsorship architecture, brand activation at live music events
+
+---
+
+## VERSION
+
+Brand Book v3.1 — April 2026
+This `llms.txt` derived from the official guidelines at https://brand.backstageaffairs.com/brand-guidelines.md
