@@ -1,15 +1,33 @@
 {
-  "name": "backstage-affairs-brandbook",
-  "version": 2,
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "routes": [
+  "headers": [
     {
-      "src": "/(.*)",
-      "headers": {
-        "Cache-Control": "public, max-age=3600"
-      },
-      "dest": "/$1"
+      "source": "/(.*).svg",
+      "headers": [
+        { "key": "Content-Type", "value": "image/svg+xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/(.*).png",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/brand-guidelines.md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
     }
   ]
 }
